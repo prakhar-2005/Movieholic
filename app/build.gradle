@@ -19,6 +19,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "API_KEY", "\"3551657029a066469b7163b139feb0df\""
+        buildConfigField "String", "BASE_URL", "\"https://api.themoviedb.org/3/\""
     }
 
     buildTypes {
@@ -36,15 +37,15 @@ android {
     }
     buildFeatures{
         dataBinding = true
-        buildConfig = true
+//        buildConfig = true
     }
 }
 
 dependencies {
-    def lifecycle_version = "2.6.2"
+    def lifecycle_version =  "2.7.0"//"2.6.2"
     def room_version = "2.6.1"
 //    def coroutine_version = "1.8.0-RC2"
-    def coroutine_version = "1.9.21"
+//    def coroutine_version = "1.9.21"
     def dagger_version = "2.50"
     def retrofit_version = "2.9.0"
     def interceptor_version = "4.12.0"
@@ -67,8 +68,8 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
 
     //Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+//    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+//    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 
     //Dagger
     implementation "com.google.dagger:dagger:$dagger_version"

@@ -14,7 +14,6 @@ class PopularMovieRepoImpl(
 ): PopularMovieRepository {
     override suspend fun getPopularMovies(): List<PopularMovie>? {
         return getMoviesFromCache()
-
     }
 
     override suspend fun updatePopularMovies(): List<PopularMovie>? {
@@ -23,7 +22,10 @@ class PopularMovieRepoImpl(
         movieLocalDatasource.savePopularMoviesToDB(newMovieList)
         movieCacheDatasource.savePopularMoviesToCache(newMovieList)
 
-        return newMovieList
+//        return newMovieList
+        return newMovieList.sortedBy { popularMovie ->
+            popularMovie.id
+        }
     }
 
     suspend fun getMoviesFromApi():List<PopularMovie>{
@@ -53,7 +55,7 @@ class PopularMovieRepoImpl(
             Log.i("MYTAG", exception.message.toString())
         }
 
-        if(movieList.size>0){
+        if(movieList.isNotEmpty()){
             return movieList
         }else{
             movieList=getMoviesFromApi()
@@ -72,7 +74,7 @@ class PopularMovieRepoImpl(
             Log.i("MYTAG", exception.message.toString())
         }
 
-        if(movieList.size>0){
+        if(movieList.isNotEmpty()){
             return movieList
         }else{
             movieList = getMoviesFromDB()

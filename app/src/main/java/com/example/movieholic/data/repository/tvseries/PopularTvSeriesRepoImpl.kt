@@ -52,7 +52,7 @@ class PopularTvSeriesRepoImpl(
             Log.i("MYTAG", exception.message.toString())
         }
 
-        if(tvSeriesList.size>0){
+        if(tvSeriesList.isNotEmpty()){
             return tvSeriesList
         }else{
             tvSeriesList = getTvSeriesFromApi()
@@ -71,7 +71,7 @@ class PopularTvSeriesRepoImpl(
             Log.i("MYTAG", exception.message.toString())
         }
 
-        if(tvSeriesList.size>0){
+        if(tvSeriesList.isNotEmpty()){
             return tvSeriesList
         }else{
             tvSeriesList = getTvSeriesFromDB()

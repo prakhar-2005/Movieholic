@@ -52,7 +52,7 @@ class PopularPeopleRepoImpl(
             Log.i("MYTAG", exception.message.toString())
         }
 
-        if(peopleList.size>0){
+        if(peopleList.isNotEmpty()){
             return peopleList
         }else{
             peopleList=getPeopleFromApi()
@@ -71,7 +71,7 @@ class PopularPeopleRepoImpl(
             Log.i("MYTAG", exception.message.toString())
         }
 
-        if(peopleList.size>0){
+        if(peopleList.isNotEmpty()){
             return peopleList
         }else{
             peopleList = getPeopleFromDB()
